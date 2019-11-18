@@ -1,6 +1,6 @@
 module.exports = [{
     "name":"Cesar",
-    "photo":href= "/technics-q-c-640-480-7.png",
+    "photo":'./technics-q-c-640-480-7.png',
     "scores":[
         5,
         1,
