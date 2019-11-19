@@ -1,11 +1,11 @@
-var friends = require('../data/friend')
+var friend = require('../data/friend.js')
 module.exports = function (app) {
-    app.get('../data/friend', (req, res) => {
-        res.json(friends);
+    app.get('../data/friend.js', (req, res) => {
+        res.json(friend);
 
     });
-    app.post('../data/friend', (req, res) => {
-        friends.push(req.body)
+    app.post('../data/friend.js', (req, res) => {
+        friend.push(req.body)
         res.json(true);
     });
     return console.log('I am using this' + app)
