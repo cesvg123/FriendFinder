@@ -8,5 +8,4 @@ module.exports = function (app) {
         friend.push(req.body)
         res.json(true);
     });
-    return console.log('I am using this' + app)
 }

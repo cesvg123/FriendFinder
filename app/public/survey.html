@@ -141,7 +141,7 @@
                         .val(), $("#q6").val(), $("#q7").val(),
                     ]
                 }
-                $.post(currentURL + "/app/data/friend.js", data, function (dataF) {
+                $.post(currentURL + "/api/friend", data, function (dataF) {
                     $("#matchName").text(dataF.name);
                     $("#matchImage").attr("src", data.Photograph);
                     $("#modalResult").modal("toggle");
