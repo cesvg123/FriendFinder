@@ -34,7 +34,7 @@
         <input type="text" name="" id="name" class="form-control" required>
 
         <h4>Photograph</h4>
-        <input type="text" name="" id="name" class="form-control" required>
+        <input type="text" name="" id="Photograph" class="form-control" required>
 
         <h4><strong>Survey Questions</strong></h4>
         <Div>
@@ -112,6 +112,56 @@
             <button type="submit" id="submit" class="btn btn-secondary">Submit</button>
         </div>
     </form>
+    <div class="modalHeader">
+        <button type="button" class="close" data-dismiss="modal">X</button>
+        <h4 class="modalTitle"><strong> Compatible Friends</strong></h4>
+    </div>
+    <div class="modalBody">
+        <h4 id="matchName"></h4>
+        <img id="matchgImage" src="https://lorempixel.com/200/200/">;
+    </div>
+    <div class="modalFooter">
+        <button type="button" class="btn btn-lg btn-secondary" id="modalClose" data-dismiss="modal">Close</button>
+    </div>
+    <div class="container">
+        <p class="bold"><a href="/app/data/friend.js">API Friend Link</a>
+        </p>
+
+
+    </div>
+
+    <script>
+        var currentURL = window.location.origin;
+        $("#submit").on("click", function () {
+            if (($("#name").val().trim() !== "") && ($("#Photograph").val().trim() !== "")) {
+                var data = {
+                    name: $("#name").val(),
+                    Photograph: $("#Photograph").val(),
+                    scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5")
+                        .val(), $("#q6").val(), $("#q7").val(),
+                    ]
+                }
+                $.post(currentURL + "/app/data/friend.js", data, function (dataF) {
+                    $("#matchName").text(dataF.name);
+                    $("#matchImage").attr("src", data.Photograph);
+                    $("#modalResult").modal("toggle");
+                    $("#name").val("");
+                    $("#Photograph").val("");
+                });
+            } else {
+                $(".modalTitle").text("Information Missing")
+                $(".modalText").html("Please Complete the form before submittion")
+                $("#modalResult").modal("toggle");
+            }
+            return false;
+        });
+
+        $("#modalClose").click(function () {
+            $.get("./home.html", function (req, res) {
+                location.replace(res);
+            })
+        });
+    </script>
 
     <footer>
         <div class="container-fluid fixed-bottom bg-light footer">

@@ -1,4 +1,4 @@
-module.exports = [{
+var friend = [{
     "name":"Cesar",
     "photo":'./technics-q-c-640-480-7.png',
     "scores":[
@@ -11,5 +11,7 @@ module.exports = [{
         2,
         5,
         4,
-        1,
-    ]}]
+        1,]
+    }];
+
+    module.exports = friend;
