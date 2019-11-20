@@ -112,7 +112,31 @@
             <button type="submit" id="submit" class="btn btn-secondary">Submit</button>
         </div>
     </form>
-    <div class="modalHeader">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4 id="matchName"></h4>
+                    <img id="matchImage" src="https://lorempixel.com/200/200/">;
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+    </button>
+    <!-- <div class="modalHeader">
         <button type="button" class="close" data-dismiss="modal">X</button>
         <h4 class="modalTitle"><strong> Compatible Friends</strong></h4>
     </div>
@@ -121,12 +145,15 @@
         <img id="matchgImage" src="https://lorempixel.com/200/200/">;
     </div>
     <div class="modalFooter">
-        <button type="button" class="btn btn-lg btn-secondary" id="modalClose" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" id="modalClose" data-dismiss="modal">Close</button>
     </div>
-    <div class="container">
-        <p class="bold"><a href="/api/friend">API Friend Link</a>
-        </p>
-    </div>
+    <footer>
+        <div>
+            <button type="submit" id="submit" class="btn btn-secondary" href="/api/friend">API Friend Links</button>
+        </div>
+        <!-- <h4 class="bold"><p href="/api/friend">API Friend Link</p>
+            </h4> --> -->
+    </footer>
 
     <script>
         var currentURL = window.location.origin;
@@ -160,16 +187,6 @@
             })
         });
     </script>
-
-    <footer>
-        <div class="container-fluid fixed-bottom bg-light footer">
-            <div class="row text-center">
-                <div class="col-12 social">
-                    <a href="mailto:cesar.sanchezvegas82@gmail.com" class="btn btn-light">EMAIL</a>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 </body>
 
