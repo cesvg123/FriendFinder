@@ -163,30 +163,30 @@
         })
 
 
-        var currentURL = window.location.origin;
-        $("#submit").on("click", function () {
-            if (($("#name").val().trim() !== "") && ($("#Photograph").val().trim() !== "")) {
-                var data = {
-                    name: $("#name").val(),
-                    Photograph: $("#Photograph").val(),
-                    scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5")
-                        .val(), $("#q6").val(), $("#q7").val(),
-                    ]
-                }
-                $.post("/api/friend", data, function (dataF) {
-                    $("#matchName").text(dataF.name);
-                    $("#matchImage").attr("src", dataF.Photograph);
-                    $("#modalResult").modal("toggle");
-                    $("#name").val("");
-                    $("#Photograph").val("");
-                });
-            } else {
-                $(".modalTitle").text("Information Missing")
-                $(".modalText").html("Please Complete the form before submittion")
-                $("#modalResult").modal("toggle");
-            }
-            return false;
-        });
+        // var currentURL = window.location.origin;
+        // $("#submit").on("click", function () {
+        //     if (($("#name").val().trim() !== "") && ($("#Photograph").val().trim() !== "")) {
+        //         var data = {
+        //             name: $("#name").val(),
+        //             Photograph: $("#Photograph").val(),
+        //             scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5")
+        //                 .val(), $("#q6").val(), $("#q7").val(),
+        //             ]
+        //         }
+        //         $.post("/api/friend", data, function (dataF) {
+        //             $("#matchName").text(dataF.name);
+        //             $("#matchImage").attr("src", dataF.Photograph);
+        //             $("#modalResult").modal("toggle");
+        //             $("#name").val("");
+        //             $("#Photograph").val("");
+        //         });
+        //     } else {
+        //         $(".modalTitle").text("Information Missing")
+        //         $(".modalText").html("Please Complete the form before submittion")
+        //         $("#modalResult").modal("toggle");
+        //     }
+        //     return false;
+        // });
 
         $("#modalClose").click(function () {
             $.get("./home.html", function (req, res) {
