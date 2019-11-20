@@ -1,6 +1,8 @@
-var friend = [{
+var friend = [
+    
+    {
     "name": "Cesar",
-    "Photograph": './technics-q-c-640-480-7.png',
+    "Photograph": "./technics-q-c-640-480-7.png",
     "scores": [
         5,
         1,
@@ -9,7 +11,8 @@ var friend = [{
         5,
         1,
         2,
-    ],
+    ]},
+    {
     "name": "Nelson",
     "Photograph": './technics-q-c-640-480-7.png',
     "scores": [
@@ -20,7 +23,9 @@ var friend = [{
         5,
         1,
         2,
-    ],
+    ]}
+    ,
+    {
     "name": "Carmen",
     "Photograph": './technics-q-c-640-480-7.png',
     "scores": [
@@ -31,7 +36,7 @@ var friend = [{
         5,
         1,
         2,
-    ],
+    ]},{
     "name": "Maria",
     "Photograph": './technics-q-c-640-480-7.png',
     "scores": [
@@ -42,7 +47,7 @@ var friend = [{
         5,
         1,
         2,
-    ],
+    ]},{
     "name": "Karen",
     "Photograph": './technics-q-c-640-480-7.png',
     "scores": [
@@ -53,7 +58,8 @@ var friend = [{
         3,
         1,
         2,
-    ],"name": "Rebecca",
+    ]},{
+    "name": "Rebecca",
     "Photograph": './technics-q-c-640-480-7.png',
     "scores": [
         5,
@@ -63,7 +69,8 @@ var friend = [{
         5,
         1,
         2,
-    ], "name": "Nico",
+    ]},{
+    "name": "Nico",
     "Photograph": './technics-q-c-640-480-7.png',
     "scores": [
         5,
@@ -73,7 +80,8 @@ var friend = [{
         2,
         1,
         2,
-    ], "name": "Nicholas",
+    ]},{
+    "name": "Nicholas",
     "Photograph": './technics-q-c-640-480-7.png',
     "scores": [
         5,
@@ -83,7 +91,8 @@ var friend = [{
         5,
         3,
         2,
-    ], "name": "Pepe",
+    ]},{
+    "name": "Pepe",
     "Photograph": './technics-q-c-640-480-7.png',
     "scores": [
         5,
@@ -93,7 +102,8 @@ var friend = [{
         5,
         5,
         2,
-    ], "name": "Teresa",
+    ]},{
+    "name": "Teresa",
     "Photograph": './technics-q-c-640-480-7.png',
     "scores": [
         5,
@@ -103,7 +113,8 @@ var friend = [{
         5,
         3,
         2,
-    ], "name": "Gerardo",
+    ]},{
+    "name": "Gerardo",
     "Photograph": './technics-q-c-640-480-7.png',
     "scores": [
         5,
@@ -113,8 +124,8 @@ var friend = [{
         4,
         4,
         2,
-    ],
+    ]}
 
-}];
+];
 
 module.exports = friend;
