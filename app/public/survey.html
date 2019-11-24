@@ -109,25 +109,23 @@
             </select>
         </Div>
         <div>
-            <button type="submit" id="submit" class="btn btn-secondary">Submit</button>
+            <button type="submitButtom" id="submit" class="btn btn-secondary">Submit</button>
         </div>
     </form>
-<br>
-<footer>
-<div>
-    <p><a href="/api/friend">API Friend List</a> | <a href="https://cesvg123.github.io/FriendFinder"> GitHub Repo</a></p>
-</div>
-</footer>
-<!-- 
-    <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-        Find a Friend </button> -->
+    <br>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <footer>
+        <div class="container">
+            <h4><a href="/api/friend">API Friend List</a> | <a href="https://cesvg123.github.io/FriendFinder"> GitHub
+                    Repo</a></h4>
+        </div>
+    </footer>
+
+
+    <div id="modalResult" class="modal fade" role="dialog">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Your new Friend</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -135,19 +133,19 @@
                 </div>
 
                 <div class="modal-body">
-                <h2 id="matchName"></h2>
-                <img id="matchImage" src="https://lorempixel.com/200/200/" alt="">
+                    <h2 id="matchName"></h2>
+                    <img id="matchImage" src="https://lorempixel.com/200/200/" alt="">
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $(".submit").on("click", function () {
+            $(".submitButtom").on("click", function () {
 
                 function newForm() {
                     var formCompleted = true;
@@ -161,15 +159,14 @@
                             formCompleted = false;
                         }
                     })
-                    return formCompleted
+                    return formCompleted;
                 }
                 if (newForm() == true) {
                     var newFriend = {
                         name: $("#name").val(),
                         Photograph: $("#Photograph").val(),
-                        scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $(
-                                "#q5")
-                            .val(), $("#q6").val(), $("#q7").val(),
+                        scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(),
+                            $("#q5").val(), $("#q6").val(), $("#q7").val(),
                         ]
                     };
 
