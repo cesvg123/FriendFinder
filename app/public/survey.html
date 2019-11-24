@@ -112,9 +112,15 @@
             <button type="submit" id="submit" class="btn btn-secondary">Submit</button>
         </div>
     </form>
-
+<br>
+<footer>
+<div>
+    <p><a href="/api/friend">API Friend List</a> | <a href="https://cesvg123.github.io/FriendFinder"> GitHub Repo</a></p>
+</div>
+</footer>
+<!-- 
     <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-        Find a Friend </button>
+        Find a Friend </button> -->
 
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -125,73 +131,71 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
+                    <h2 class="modal-title"><strong>Your new friend</strong></h2>
                 </div>
+
                 <div class="modal-body">
-                    <h4 id="matchName"></h4>
-                    <img id="matchImage" src="https://lorempixel.com/200/200/">
-                    <div>
-                        <h4 ${matchFriend.name}></h4>
-                    </div>
+                <h2 id="matchName"></h2>
+                <img id="matchImage" src="https://lorempixel.com/200/200/" alt="">
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-secondary">Save changes</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 
-    <script>
-        $.getJSON("/api/friend", (data) => {
-            var matchFriend;
-            var unmatchFriend = 71;
-            data.forEach(friend => {
-                if (scores.lenght === friend.scores.lenght) {
-                    let matchingSum = 0;
-                    for (var i = 0; i < scores.lenght; i++) {
-                        const user = scores[i];
-                        const possibleFriend = friend.scores[i];
-                        var subtract = math.abs(user - possibleFriend);
-                        matchingSum = friend;
-                    }
-                    if (matchingSum < unmatchFriend) {
-                        unmatchFriend = matchingSum;
-                        matchFriend = friend;
-                    }
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".submit").on("click", function () {
+
+                function newForm() {
+                    var formCompleted = true;
+                    $(".form-control").each(function () {
+                        if ($(this).val() === "") {
+                            formCompleted = false;
+                        }
+                    });
+                    $(".select").each(function () {
+                        if ($(this).val() === "") {
+                            formCompleted = false;
+                        }
+                    })
+                    return formCompleted
                 }
+                if (newForm() == true) {
+                    var newFriend = {
+                        name: $("#name").val(),
+                        Photograph: $("#Photograph").val(),
+                        scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $(
+                                "#q5")
+                            .val(), $("#q6").val(), $("#q7").val(),
+                        ]
+                    };
+
+                    var currentURL = window.location.origin;
+
+                    $.post(currentURL + "/api/friend", newFriend, function (data) {
+                        $("#matchName").text(data.name);
+                        $("#matchImage").attr("src", data.Photograph);
+                        $("#modalResult").modal("toggle");
+                    });
+
+                    $("#name").val("");
+                    $("#Photograph").val("");
+                    $("#q1").val("");
+                    $("#q2").val("");
+                    $("#q3").val("");
+                    $("#q4").val("");
+                    $("#q5").val("");
+                    $("#q6").val("");
+                    $("#q7").val("");
+
+                } else {
+                    alert("please complete all fields")
+                }
+
             });
-        })
-
-
-        // var currentURL = window.location.origin;
-        // $("#submit").on("click", function () {
-        //     if (($("#name").val().trim() !== "") && ($("#Photograph").val().trim() !== "")) {
-        //         var data = {
-        //             name: $("#name").val(),
-        //             Photograph: $("#Photograph").val(),
-        //             scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5")
-        //                 .val(), $("#q6").val(), $("#q7").val(),
-        //             ]
-        //         }
-        //         $.post("/api/friend", data, function (dataF) {
-        //             $("#matchName").text(dataF.name);
-        //             $("#matchImage").attr("src", dataF.Photograph);
-        //             $("#modalResult").modal("toggle");
-        //             $("#name").val("");
-        //             $("#Photograph").val("");
-        //         });
-        //     } else {
-        //         $(".modalTitle").text("Information Missing")
-        //         $(".modalText").html("Please Complete the form before submittion")
-        //         $("#modalResult").modal("toggle");
-        //     }
-        //     return false;
-        // });
-
-        $("#modalClose").click(function () {
-            $.get("./home.html", function (req, res) {
-                location.replace(res);
-            })
         });
     </script>
 
