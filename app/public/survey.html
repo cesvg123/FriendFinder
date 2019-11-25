@@ -31,10 +31,10 @@
     <form role="form">
         <h4><strong>About you</strong></h4>
         <h4>Name</h4>
-        <input type="text" name="" id="name" class="form-control" required>
+        <input type="text" name="" id="formName" class="form-control" required>
 
         <h4>Photograph</h4>
-        <input type="text" name="" id="Photograph" class="form-control" required>
+        <input type="text" name="" id="formPhotograph" class="form-control" required>
 
         <h4><strong>Survey Questions</strong></h4>
         <Div>
@@ -161,8 +161,8 @@
                 }
                 if (newForm() == true) {
                     var newFriend = {
-                        name: $("#name").val().trim(),
-                        Photograph: $("#Photograph").val().trim(),
+                        name: $("#formName").val().trim(),
+                        Photograph: $("#formPhotograph").val().trim(),
                         scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(),
                             $("#q5").val(), $("#q6").val(), $("#q7").val(),
                         ]
